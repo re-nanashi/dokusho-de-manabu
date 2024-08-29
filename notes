@@ -1,0 +1,42 @@
+Steps:
+
+BUILD:
+1. pip install virtualenv
+2. To use venv in your project, in your terminal, create a new project folder, cd to the project folder in your terminal, and run the following command:
+    - mkdir projectA
+    - cd projectA
+    - python3 -m venv env : python<version> -m venv <virtual-environment-name>
+3.0 check if windows or linux
+3. Linux: source env/bin/activate
+   Windows: env/Scripts/activate.bat
+            env/Scripts/Activate.ps1
+4. Install libraries/packages:
+    https://spacy.io/usage/models
+    - pip install package_name
+
+5. Freeze Dependencies. Include .env to .gitignore
+6. Recreate environment to others:
+   python -m venv myenv
+   source myenv/bin/activate  # Activate the environment
+   pip install -r requirements.txt
+
+7. Create a bin directory
+8. Go to the bin directory
+9. Clone the whisper api
+    - git clone https://github.com/ggerganov/whisper.cpp.git
+10. Go to the whisper.cpp directory
+11. Download the 3 models: bash ./models/download-ggml-model.sh small/medium/large
+12. Put the 3 models to the root of bin folder
+13. Build the program using make
+14. Put the main program to root of bin 
+
+
+MAIN:
+
+1 Get the audio file to parse
+1.1 or if youtube -> yt-dlp -x --audio-format wav --audio-quality 16K --postprocessor-args "-ar 16000" https://www.youtube.com/watch\?v\=yWDsP7CWfQ8
+2. Resample to 16K audio to 16K if not yet then change the name to output.wav if not yet
+3. Check the threads_num then use it as parameter
+3. Run the program ./main -m <model.bin> -t <threads_num> -otxt -l Japanese -f <path/to/audio>
+4. Parse the 
+
